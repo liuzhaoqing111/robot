@@ -1,20 +1,21 @@
 package com.lzq.robot.webcommon.exception;
 
 import lombok.Data;
+import org.springframework.http.HttpStatus;
 
 @Data
 public class ApiException extends RuntimeException {
 
-  private int code;
+  private HttpStatus httpStatus;
   private Object data;
 
-  public ApiException(int code, String msg) {
+  public ApiException(HttpStatus httpStatus, String msg) {
     super(msg);
-    this.code = code;
+    this.httpStatus = httpStatus;
   }
-  public ApiException(int code, String msg, Object data) {
+  public ApiException(HttpStatus httpStatus, String msg, Object data) {
     super(msg);
-    this.code = code;
+    this.httpStatus = httpStatus;
     this.data = data;
   }
 }

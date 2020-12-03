@@ -42,14 +42,14 @@ public class GlobalControllerExceptionHandler extends ResponseEntityExceptionHan
 
     @ExceptionHandler(value = ApiException.class)
     public ResponseEntity<Object> handleApiException(ApiException apiException, WebRequest request){
-        log.warn("api exception, code:{}, message:{}", apiException.getCode(), apiException.getMessage());
+        log.warn("api exception, code:{}, message:{}", apiException.getHttpStatus(), apiException.getMessage());
         String body = apiException.getMessage();
         final Object data = apiException.getData();
         if (data != null) {
             body = JacksonUtil.toJson(data);
         }
         return handleExceptionInternal(apiException, body,
-                new HttpHeaders(), HttpStatus.valueOf(apiException.getCode()), request);
+                new HttpHeaders(), apiException.getHttpStatus(), request);
 
     }
 
