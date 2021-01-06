@@ -43,8 +43,8 @@ public class CodeGeneration {
         DataSourceConfig dsc = new DataSourceConfig();
         dsc.setDbType(DbType.MYSQL);
         dsc.setDriverName("com.mysql.cj.jdbc.Driver");
-        dsc.setUrl("jdbc:mysql://localhost:3306/hive_cloud");
-        dsc.setUsername("root");
+        dsc.setUrl("jdbc:mysql://localhost:3306/robot");
+        dsc.setUsername("robot");
         dsc.setPassword("123456");
         mpg.setDataSource(dsc);
 
@@ -52,7 +52,12 @@ public class CodeGeneration {
         StrategyConfig strategy = new StrategyConfig();
         // strategy.setTablePrefix(new String[] { "sys_" });// 此处可以修改为您的表前缀
         strategy.setNaming(NamingStrategy.underline_to_camel);// 表名生成策略(下划线转驼峰)
-        strategy.setInclude("sys_user", "sys_role", "sys_tenant", "sys_user_role_ref", "interactive_screen", "interactive_apk"); // 需要生成的表名
+        strategy.setInclude(
+//                "sys_user",
+//                "sys_role",
+//                "sys_user_role_ref",
+                "sys_token"
+                ); // 需要生成的表名
         mpg.setStrategy(strategy);
 
         // 包配置
