@@ -9,16 +9,10 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>common</artifactId>
-    <dependencies>
-        <dependency>
-            <groupId>com.fasterxml.jackson.core</groupId>
-            <artifactId>jackson-databind</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-core</artifactId>
-            <version>1.7.0</version>
-        </dependency>
-    </dependencies>
+    <artifactId>starter</artifactId>
+
+    <modules>
+        <module>websocket-starter</module>
+    </modules>
+
 </project>

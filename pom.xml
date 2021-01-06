@@ -26,6 +26,7 @@
 		<module>common</module>
 		<module>finance</module>
 		<module>webcommon</module>
+        <module>starter</module>
 	</modules>
 	<dependencyManagement>
 		<dependencies>
